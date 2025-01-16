@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "headline": "Boasting Over 8 Years of Experience in Product Commercialization Worldwide",
+    "subHeadline": "ComWeb OC has been helping brands expand internationally across the Americas since 2016",
+    "button": "About Us"
+  },
+  "brands": {
+    "title": "Trusted by the best brands"
+  },
+  "services": {
+    "title": "Our service elevate your business",
+    "subtitle": "Our partnerships with both national and international brands enable us to provide our clients with assurance, timeliness and high-quality offerings"
+  },
+  "operations": {
+    "title": "We make business worldwide"
+  },
+  "categories": {
+    "title": "Solutions by category",
+    "items": {
+      "pets": "Pets & Veterinary",
+      "office": "Office supplies",
+      "cleaning": "Cleaning supplies",
+      "home": "Home & Kitchen",
+      "snacks": "Snacks & Beverages",
+      "outdoors": "Outdoors & Wildlife"
+    }
+  },
+  "clients": {
+    "title": "Our valued clients"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch to learn more",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "phone": "Contact number",
+      "company": "Company"
+    }
+  },
+  "footer": {
+    "email": "info@comweboc.com",
+    "location": "Monterrey, NL, México",
+    "phone": "+52 818 462 8963"
+  }
+}

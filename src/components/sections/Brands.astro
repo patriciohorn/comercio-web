@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+const { title } = Astro.props;
+const titleArray = title.split(' ');
+const titleDark = titleArray.slice(0, -2).join(' ');
+const titleLight = titleArray.slice(-2).join(' ');
+
+import tresM from '../../assets/brands/3M.png';
+import doog from '../../assets/brands/Doog.png';
+import pg from '../../assets/brands/P&G.png';
+import pentair from '../../assets/brands/Pentair.png';
+import petsfirst from '../../assets/brands/Petsfirst.png';
+import petshop from '../../assets/brands/Petshop.png';
+import petsport from '../../assets/brands/Petsport.png';
+import zippypaws from '../../assets/brands/ZippyPaws.png';
+
+const logos = [
+  { src: tresM, alt: 'Logo 3M' },
+  { src: doog, alt: 'Logo Doog' },
+  { src: pg, alt: 'Logo P&G' },
+  { src: pentair, alt: 'Logo Pentair' },
+  { src: petsfirst, alt: 'Logo Petfirst' },
+  { src: petshop, alt: 'Logo PetShop' },
+  { src: petsport, alt: 'Logo Petsport' },
+  { src: zippypaws, alt: 'Logo ZippyPaws' },
+];
+---
+
+<section class="pt-32 py-16">
+  <div class="max-w-screen-xl mx-auto">
+    <h2
+      class="mb-9 text-4xl md:text-5xl font-bold text-center text-blue-950">
+      {titleDark}
+      <span class="text-blue-700">{titleLight}</span>
+    </h2>
+    <div
+      class="py-14 grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-x-16 md:gap-y-32">
+      {
+        logos.map(({ src, alt }) => {
+          return (
+            <div class="aspect-video max-w-32 md:max-w-36 mx-auto">
+              <Image
+                src={src}
+                alt={alt}
+                class="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

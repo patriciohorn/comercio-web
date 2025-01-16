@@ -1,0 +1,24 @@
+---
+import '../../styles/globals.css';
+import { getI18N } from '../../i18n/index';
+import Layout from '../../layouts/Layout.astro';
+import Brands from '../sections/Brands.astro';
+import Hero from '../sections/Hero.astro';
+import Services from '../sections/Services.astro';
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout title="Comercio Web">
+  <Hero
+    headline={i18n.hero.headline}
+    subheadline={i18n.hero.subHeadline}
+    btnText={i18n.hero.button}
+  />
+  <Brands title={i18n.brands.title} />
+  <Services
+    title={i18n.services.title}
+    subtitle={i18n.services.subtitle}
+  />
+</Layout>
