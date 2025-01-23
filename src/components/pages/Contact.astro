@@ -1,0 +1,33 @@
+---
+import '../../styles/globals.css';
+import { getI18N } from '../../i18n/index';
+import Layout from '@/layouts/Layout.astro';
+import Footer from '../sections/Footer.astro';
+import ContactForm from '../sections/ContactForm.astro';
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout title="Comercio Web">
+  <main class="bg-[#F6F6F6]">
+    <div class="max-w-screen-xl mx-auto px-4 py-24 sm:py-32">
+      <div class="mb-10 mx-auto max-w-2xl text-center">
+        <h1
+          class="text-4xl text-balance text-primary sm:text-5xl font-bold text-center text-blue-950">
+          {i18n.contact.title}
+        </h1>
+        <p class="mt-2 text-lg/8 text-gray-600">
+          {i18n.contact.subtitle}
+        </p>
+      </div>
+      <div
+        class="border border-gray-200 shadow-xl bg-primary-foreground py-10 rounded-3xl max-w-2xl mx-auto">
+        <ContactForm
+          labels={i18n.contact.form}
+          buttonText={i18n.contact.submitText}
+        />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

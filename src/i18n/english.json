@@ -31,7 +31,8 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "Get in touch to learn more",
+    "subtitle": "Get in touch for more information about our products and services",
+    "submitText": "Let's Talk!",
     "form": {
       "name": "Name",
       "email": "Email",

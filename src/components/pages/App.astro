@@ -8,12 +8,14 @@ import Services from '../sections/Services.astro';
 import Categories from '../sections/Categories.astro';
 import Operations from '../sections/Operations.astro';
 import Clients from '../sections/Clients.astro';
+import Footer from '../sections/Footer.astro';
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
 <Layout title="Comercio Web">
+  <main>
   <Hero
     headline={i18n.hero.headline}
     subheadline={i18n.hero.subHeadline}
@@ -31,4 +33,6 @@ const i18n = getI18N({ currentLocale });
   />
   <Operations title={i18n.operations.title} />
   <Clients title={i18n.clients.title} />
+  </main>
+  <Footer/>
 </Layout>

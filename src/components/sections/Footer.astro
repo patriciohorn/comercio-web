@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import comwebLogo from '../../assets/comweb-logo-white.png';
+---
+
+<footer class="bg-primary text-white py-20">
+  <div
+    class="max-w-screen-xl mx-auto px-4 md:flex md:justify-between md:items-start">
+    <!-- Logo Section -->
+    <div class="mb-6 md:mb-0">
+      <Image src={comwebLogo} alt="ComWeb OC Logo" class="w-36" />
+    </div>
+
+    <!-- Contact Info Section -->
+    <div class="mb-6 md:mb-0">
+      <h3 class="text-xl font-medium mb-4">Contacto</h3>
+      <ul class="space-y-2 text-lg text-gray-200">
+        <li>
+          Email: <a href="mailto:info@comweboc.com" class="underline"
+            >info@comweboc.com</a
+          >
+        </li>
+        <li>Ubicación: Monterrey, NL, México</li>
+        <li>
+          Teléfono: <a href="tel:+528184628963" class="underline"
+            >+52 818 462 8963</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Navbar Links -->
+    <div>
+      <h3 class="text-xl font-medium mb-4">Enlaces</h3>
+      <ul class="space-y-2 text-lg text-gray-200">
+        <li><a href="#home" class="hover:underline">Inicio</a></li>
+        <li>
+          <a href="#about-us" class="hover:underline"
+            >Sobre Nosotros</a
+          >
+        </li>
+        <li><a href="#brands" class="hover:underline">Marcas</a></li>
+        <li>
+          <a href="#services" class="hover:underline">Servicios</a>
+        </li>
+        <li>
+          <a href="#categories" class="hover:underline">Categorías</a>
+        </li>
+        <li>
+          <a href="#international-relations" class="hover:underline"
+            >Relaciones Internacionales</a
+          >
+        </li>
+        <li>
+          <a href="#clients" class="hover:underline">Clientes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="text-center mt-20 text-sm text-gray-300">
+    © {new Date().getFullYear()} ComWeb OC. Todos los derechos reservados.
+  </div>
+</footer>

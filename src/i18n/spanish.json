@@ -32,10 +32,11 @@
   "contact": {
     "title": "Contáctanos",
     "subtitle": "Comunícate con nosotros para obtener más información sobre nuestros productos y servicios",
+    "submitText": "Enviar Mensaje",
     "form": {
       "name": "Nombre",
       "email": "Email",
-      "subject": "Tema",
+      "subject": "Asunto",
       "message": "Mensaje",
       "phone": "Teléfono de contacto",
       "company": "Empresa"

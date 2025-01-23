@@ -1,0 +1,89 @@
+---
+import { Button } from '../ui/button';
+const { labels, buttonText } = Astro.props;
+---
+
+<form action="#" method="POST" class="mx-auto max-w-xl">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
+    <div>
+      <label for="name" class="block mb-2 font-medium text-gray-900"
+        >{labels.name}*</label
+      >
+      <input
+        required
+        type="text"
+        id="name"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5"
+        placeholder=""
+      />
+    </div>
+    <div>
+      <label for="email" class="block mb-2 font-medium text-gray-900"
+        >{labels.email}*</label
+      >
+      <input
+        required
+        type="email"
+        id="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder=""
+      />
+    </div>
+    <div>
+      <label for="phone" class="block mb-2 font-medium text-gray-900"
+        >{labels.phone}*</label
+      >
+      <input
+        required
+        type="text"
+        id="phone"
+        minlength="10"
+        maxlength="10"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder=""
+        required
+      />
+    </div>
+    <div>
+      <label
+        for="company"
+        class="block mb-2 font-medium text-gray-900"
+        >{labels.company}</label
+      >
+      <input
+        type="text"
+        id="company"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder=""
+      />
+    </div>
+    <div class="col-span-2">
+      <label for="asunto" class="block mb-2 font-medium text-gray-900"
+        >{labels.subject}*</label
+      >
+      <input
+        required
+        type="text"
+        id="asunto"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder=""
+      />
+    </div>
+    <div class="col-span-2">
+      <label
+        for="mensaje"
+        class="block mb-2 font-medium text-gray-900"
+        >{labels.message}*</label
+      >
+      <textarea
+        id="mensaje"
+        rows="5"
+        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 resize-none"
+        placeholder=""
+        required></textarea>
+    </div>
+  </div>
+  <div class="mt-10">
+    <Button size="lg" className="w-full">{buttonText}</Button>
+  </div>
+</form>
