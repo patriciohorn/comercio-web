@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import Brands from '../sections/Brands.astro';
 import Hero from '../sections/Hero.astro';
 import Services from '../sections/Services.astro';
+import Categories from '../sections/Categories.astro';
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -22,4 +23,5 @@ const i18n = getI18N({ currentLocale });
     title={i18n.services.title}
     subtitle={i18n.services.subtitle}
   />
+  <Categories title={i18n.categories.title} categories={i18n.categories.items} />
 </Layout>

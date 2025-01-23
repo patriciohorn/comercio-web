@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+const { src, alt, category } = Astro.props;
+console.log(category)
+---
+
+<div class="flex flex-col gap-y-4">
+  <div
+    class="aspect-square rounded-3xl overflow-hidden max-w-96 shadow-md">
+    <Image
+      src={src}
+      alt={alt}
+      loading="lazy"
+      inferSize
+      format="webp"
+      class="w-full h-full object-cover hover:scale-[1.05] transition-transform duration-200"
+    />
+    <!-- <div class="gradient absolute inset-0"></div> -->
+  </div>
+  <p class="text-xl font-medium text-white">{category}</p>
+</div>

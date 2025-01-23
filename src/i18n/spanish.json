@@ -18,12 +18,12 @@
   "categories": {
     "title": "Soluciones para diferentes categorías",
     "items": {
-      "pets": "Mascotas y veterinarios",
+      "pets": "Mascotas y Veterinarios",
       "office": "Suministros para oficina",
       "cleaning": "Suministros para limpieza",
-      "home": "Hogar y cocina",
-      "snacks": "Snacks y bebidas",
-      "outdoors": "Outdoors y vida silvestre"
+      "home": "Hogar y Cocina",
+      "snacks": "Snacks y Bebidas",
+      "outdoors": "Outdoors y Vida Silvestre"
     }
   },
   "clients": {
