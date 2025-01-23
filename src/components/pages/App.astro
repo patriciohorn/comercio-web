@@ -7,6 +7,7 @@ import Hero from '../sections/Hero.astro';
 import Services from '../sections/Services.astro';
 import Categories from '../sections/Categories.astro';
 import Operations from '../sections/Operations.astro';
+import Clients from '../sections/Clients.astro';
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -29,4 +30,5 @@ const i18n = getI18N({ currentLocale });
     categories={i18n.categories.items}
   />
   <Operations title={i18n.operations.title} />
+  <Clients title={i18n.clients.title} />
 </Layout>

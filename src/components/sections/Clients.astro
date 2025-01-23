@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+const { title } = Astro.props;
+
+import amazon from '../../assets/clients-brands/amazon.png';
+import copamex from '../../assets/clients-brands/copamex.png';
+import heb from '../../assets/clients-brands/heb.png';
+import homeDepot from '../../assets/clients-brands/home-depot.png';
+import mattel from '../../assets/clients-brands/mattel.png';
+import nl from '../../assets/clients-brands/nl.png';
+import salud from '../../assets/clients-brands/salud.png';
+import soriana from '../../assets/clients-brands/soriana.png';
+import vw from '../../assets/clients-brands/vw.png';
+import walmart from '../../assets/clients-brands/walmart.png';
+
+const logos = [
+  { src: amazon, alt: 'Logo amazon' },
+  { src: copamex, alt: 'Logo copamex' },
+  { src: heb, alt: 'Logo HEB' },
+  { src: homeDepot, alt: 'Logo Home Depot' },
+  { src: mattel, alt: 'Logo Mattel' },
+  { src: soriana, alt: 'Logo Soriana' },
+  { src: vw, alt: 'Logo Volkswagen' },
+  { src: walmart, alt: 'Logo Walmart' },
+  { src: nl, alt: 'Logo Nuevo León' },
+  { src: salud, alt: 'Logo salud Nuevo León' },
+];
+---
+
+<section class="py-16 md:py-32">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <h2
+      class="mb-9 text-4xl md:text-5xl font-bold text-center text-blue-950">
+      {title}
+    </h2>
+    <div
+      class="py-14 grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-y-28">
+      {
+        logos.map(({ src, alt }, index) => {
+          return (
+            <div
+              class={`flex items-center justify-center ${index === 8 ? 'md:col-start-2' : ''}`}>
+              <Image
+                src={src}
+                alt={alt}
+                class="w-full aspect-video object-contain max-w-32 md:max-w-44"
+                loading="lazy"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

@@ -43,12 +43,12 @@ const categoriesImages = [
 ];
 ---
 
-<section class="py-28 bg-primary">
-  <div class="max-w-screen-xl mx-auto px-4 py-8">
+<section class="py-16 md:py-28 bg-primary">
+  <div class="max-w-screen-xl mx-auto px-4">
     <h2 class="mb-16 text-4xl md:text-5xl font-bold text-white">
       {title}
     </h2>
-    <ul class="grid grid-cols-3 gap-x-12 gap-y-16">
+    <ul class="grid md:grid-cols-3 gap-x-12 gap-y-16">
       {
         categoriesImages.map(({ src, alt, category }) => (
           <CategoryCard src={src} alt={alt} category={category} />
