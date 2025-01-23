@@ -1,31 +1,33 @@
 ---
 import { Image } from 'astro:assets';
-import Button from '../elements/Button.astro';
-import serviceOne from '../../assets/service-1.jpg';
-
-const { title, subtitle } = Astro.props;
+import { Button } from '../ui/button';
+import ServicesCarousel from './ServicesCarousel';
+const { title, subtitle, eyebrow } = Astro.props;
 const titleArray = title.split(' ');
 const titleDark = titleArray.slice(0, -3).join(' ');
 const titleLight = titleArray.slice(-3).join(' ');
 ---
 
 <section class="pt-32 py-16">
-  <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row">
-    <div class="rounded-3xl overflow-hidden w-2/3 min-h-96">
-      <!-- Something -->
-      <Image
-        src={serviceOne}
-        alt="Foto de embotelladora"
-        class="w-full h-full object-cover"
-      />
+  <div
+    class="max-w-screen-xl mx-auto px-4 py-8 | flex flex-col justify-between md:flex-row gap-x-16 gap-y-12">
+    <div class="md:w-3/5">
+      <ServicesCarousel client:visible />
     </div>
-    <div class="w-1/2 pr-6 pb-6 pl-14 flex flex-col">
+    <div class="md:w-2/5 flex flex-col">
+      <p class="text-lg text-[#777] font-bold mb-3">
+        {eyebrow.toUpperCase()}
+      </p>
       <h2 class="mb-6 text-4xl md:text-5xl font-bold text-blue-950">
         {titleDark}
         <span class="text-blue-700">{titleLight}</span>
       </h2>
       <p class="mb-8 text-lg md:text-xl">{subtitle}</p>
-      <Button>See What Sets Us Apart</Button>
+      <div class="flex">
+        <Button variant="accent" size="lg"
+          >See What Sets Us Apart</Button
+        >
+      </div>
     </div>
   </div>
 </section>
