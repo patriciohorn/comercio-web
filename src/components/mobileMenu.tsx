@@ -64,6 +64,7 @@ function MobileMenu({ items, isSpanish }: any) {
       </SheetContent>
     </Sheet>
   );
+  window.scrollTo(0, 0);
 }
 
 export { MobileMenu };
