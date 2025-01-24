@@ -32,7 +32,7 @@ function MobileMenu({ items, isSpanish }: any) {
           </svg>
         </button>
       </SheetTrigger>
-      <SheetContent className="min-h-svh w-full">
+      <SheetContent className="min-h-svh w-full" side="top">
         <SheetHeader>
           <SheetTitle>
             {/* <img src={logo.src} className="max-w-20"></img> */}
