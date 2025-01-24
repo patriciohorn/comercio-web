@@ -27,11 +27,6 @@ const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
       />
       <span class="sr-only">Ir a inicio</span>
     </a>
-    <MobileMenu
-      items={navLinks}
-      isSpanish={isSpanish}
-      client:visible
-    />
 
     <div class="hidden md:flex md:gap-x-12 md:items-center">
       <ul class="flex gap-x-12">
@@ -58,6 +53,23 @@ const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
           >{contactButton}</Link
         >
       </Button>
+    </div>
+
+    <div class="flex gap-x-2">
+      <Button asChild>
+        <Link
+          variant={isContactPage ? 'secondary' : 'default'}
+          size="sm"
+          className="text-base"
+          href={isSpanish ? '/contacto' : '/en/contact'}
+          >{contactButton}</Link
+        >
+      </Button>
+      <MobileMenu
+        items={navLinks}
+        isSpanish={isSpanish}
+        client:visible
+      />
     </div>
   </div>
 </nav>
