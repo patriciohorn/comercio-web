@@ -27,7 +27,54 @@
   * {
     @apply border-border;
   }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-Regular.woff2') format('woff2'),
+      url('./fonts/DMSans-Regular.woff') format('woff'),
+      url('./fonts/DMSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap; /* Optional, but recommended */
+  }
+
+  /* DM Sans Medium 500 */
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-Medium.woff2') format('woff2'),
+      url('./fonts/DMSans-Medium.woff') format('woff'),
+      url('./fonts/DMSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap; /* Optional, but recommended */
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-Medium.woff2') format('woff2'),
+      url('./fonts/DMSans-Medium.woff') format('woff'),
+      url('./fonts/DMSans-Medium.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap; /* Optional, but recommended */
+  }
+
+  /* DM Sans Bold 700 */
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-Bold.woff2') format('woff2'),
+      url('./fonts/DMSans-Bold.woff') format('woff'),
+      url('./fonts/DMSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap; /* Optional, but recommended */
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  body {
+    font-family: 'DM Sans';
+  }
+
+  h1,
+  h2 {
+    @apply tracking-tight;
   }
 }
