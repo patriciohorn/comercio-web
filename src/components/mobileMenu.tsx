@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Sheet,
   SheetContent,
@@ -10,8 +11,17 @@ import logo from '../assets/comweb-logo-outline.png';
 import { Link } from './ui/link';
 
 function MobileMenu({ items, isSpanish }: any) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+    if (open) {
+      // When the sheet is opening, scroll to the top (fixes iOS issue)
+      window.scrollTo(0, 0);
+    }
+  };
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
       <SheetTrigger className="md:hidden text-white inline-flex items-center justify-center h-10 w-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
