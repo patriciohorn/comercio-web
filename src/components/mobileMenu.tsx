@@ -29,7 +29,7 @@ function MobileMenu({ items, isSpanish }: any) {
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="min-h-svh">
         <SheetHeader>
           <SheetTitle>
             {/* <img src={logo.src} className="max-w-20"></img> */}
@@ -64,7 +64,6 @@ function MobileMenu({ items, isSpanish }: any) {
       </SheetContent>
     </Sheet>
   );
-  window.scrollTo(0, 0);
 }
 
 export { MobileMenu };
