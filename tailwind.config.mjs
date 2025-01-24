@@ -1,4 +1,6 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
+
 export default {
   darkMode: ['class'],
   content: [
@@ -9,6 +11,9 @@ export default {
       tight: '-0.035em',
     },
     extend: {
+      fontFamily: {
+        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
