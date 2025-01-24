@@ -17,7 +17,8 @@
   "services": {
     "eyebrow": "Socios estratégicos de marcas destacadas",
     "title": "Nuestros servicios elevan tu negocio",
-    "subtitle": "Nuestras relaciones con marcas nacionales e internacionales nos permiten brindar a nuestros clientes garantía, puntualidad y ofertas de alta calidad"
+    "subtitle": "Nuestras relaciones con marcas nacionales e internacionales nos permiten brindar a nuestros clientes garantía, puntualidad y ofertas de alta calidad",
+    "ctaButton": "Conoce a Nuestros Clientes"
   },
   "operations": {
     "title": "Relaciones comerciales a nivel internacional"

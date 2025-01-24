@@ -77,5 +77,14 @@
   h1,
   h2 {
     @apply tracking-tight;
+    @apply leading-tight;
+  }
+
+  .gradient {
+    background-image: radial-gradient(
+      circle at center center,
+      rgb(12, 44, 156),
+      rgb(14, 31, 101)
+    );
   }
 }

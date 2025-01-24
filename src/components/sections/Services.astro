@@ -1,37 +1,44 @@
 ---
 import { Image } from 'astro:assets';
 import { Button } from '../ui/button';
+import { Link } from '../ui/link';
 import ServicesCarousel from './ServicesCarousel';
-const { title, subtitle, eyebrow } = Astro.props;
-const titleArray = title.split(' ');
-const titleDark = titleArray.slice(0, -3).join(' ');
-const titleLight = titleArray.slice(-3).join(' ');
 
 const { currentLocale } = Astro;
 const isSpanish = currentLocale === 'es';
+
+const { title, subtitle, eyebrow, ctaButton } = Astro.props;
+const titleArray = title.split(' ');
+const titleDark = titleArray.slice(0, -3).join(' ');
+const titleLight = titleArray.slice(-3).join(' ');
 ---
 
 <section
-  class="py-16 md:py-28 -scroll-m-10"
+  class="py-16 md:pt-14 md:pb-28 -scroll-m-10"
   id={`${isSpanish ? 'nosotros' : 'about'}`}>
   <div
-    class="max-w-screen-xl mx-auto px-4 py-8 | flex flex-col justify-between md:flex-row gap-x-16 gap-y-12">
+    class="max-w-screen-xl mx-auto px-6 | flex flex-col justify-between md:flex-row gap-x-20 gap-y-12">
     <div class="md:w-3/5">
       <ServicesCarousel client:visible />
     </div>
     <div class="md:w-2/5 flex flex-col">
-      <p class="text-lg text-[#777] font-bold mb-3">
+      <p class="text-base md:text-lg text-[#777] font-bold mb-3">
         {eyebrow.toUpperCase()}
       </p>
-      <h2 class="mb-6 text-4xl md:text-5xl font-bold text-blue-950">
+      <h2
+        class="mb-6 text-4xl md:text-5xl font-bold text-blue-950 leading-[1.1]">
         {titleDark}
-        <span class="text-blue-700">{titleLight}</span>
+        <span class="text-blue-700 leading-none">{titleLight}</span>
       </h2>
-      <p class="mb-8 text-lg md:text-xl">{subtitle}</p>
+      <p class="mb-8 text-lg md:text-xl leading-[1.5]">{subtitle}</p>
       <div class="flex">
-        <Button variant="accent" size="lg"
-          >See What Sets Us Apart</Button
-        >
+        <Button asChild>
+          <Link
+            href={isSpanish ? '#clientes' : '#clients'}
+            variant="accent"
+            size="lg">{ctaButton}</Link
+          >
+        </Button>
       </div>
     </div>
   </div>

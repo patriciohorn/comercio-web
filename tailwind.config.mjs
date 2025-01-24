@@ -14,6 +14,13 @@ export default {
       fontFamily: {
         sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        'gradient-radial': `radial-gradient(
+      circle at center center,
+      rgb(12, 44, 156),
+      rgb(14, 31, 101)
+    );`,
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

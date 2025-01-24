@@ -17,7 +17,8 @@
   "services": {
     "eyebrow": "Tailored partnerships for top brands",
     "title": "Our service elevate your business",
-    "subtitle": "Our partnerships with both national and international brands enable us to provide our clients with assurance, timeliness and high-quality offerings"
+    "subtitle": "Our partnerships with both national and international brands enable us to provide our clients with assurance, timeliness and high-quality offerings",
+    "ctaButton": "Explore Our Clients"
   },
   "operations": {
     "title": "We make business worldwide"

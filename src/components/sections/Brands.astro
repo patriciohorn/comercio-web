@@ -29,16 +29,16 @@ const isSpanish = currentLocale === 'es';
 ---
 
 <section
-  class="py-16 md:pt-32 md:pb-16 -scroll-m-10"
+  class="py-16 md:py-32 -scroll-m-10"
   id={`${isSpanish ? 'marcas' : 'brands'}`}>
-  <div class="max-w-screen-xl mx-auto">
+  <div class="max-w-screen-xl mx-auto px-6">
     <h2
-      class="mb-9 text-4xl md:text-5xl font-bold text-center text-blue-950">
+      class="mb-24 text-4xl md:text-5xl font-bold text-center text-blue-950">
       {titleDark}
       <span class="text-blue-700">{titleLight}</span>
     </h2>
     <div
-      class="py-14 grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-y-32">
+      class="grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-y-32">
       {
         logos.map(({ src, alt }) => {
           return (
