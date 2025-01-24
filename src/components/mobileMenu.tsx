@@ -29,7 +29,7 @@ function MobileMenu({ items, isSpanish }: any) {
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </SheetTrigger>
-      <SheetContent className="bg-primary">
+      <SheetContent>
         <SheetHeader>
           <SheetTitle>
             <img src={logo.src} className="max-w-20"></img>
