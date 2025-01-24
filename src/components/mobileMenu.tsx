@@ -12,7 +12,7 @@ import { Link } from './ui/link';
 function MobileMenu({ items, isSpanish }: any) {
   return (
     <Sheet>
-      <SheetTrigger className="text-white inline-flex items-center justify-center h-10 w-10">
+      <SheetTrigger className="md:hidden text-white inline-flex items-center justify-center h-10 w-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1.5rem"
