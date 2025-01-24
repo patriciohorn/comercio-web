@@ -32,11 +32,11 @@ function MobileMenu({ items, isSpanish }: any) {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>
-            <img src={logo.src} className="max-w-20"></img>
+            {/* <img src={logo.src} className="max-w-20"></img> */}
           </SheetTitle>
           <SheetDescription></SheetDescription>
         </SheetHeader>
-        <nav className="flex flex-col justify-center space-y-4 mt-8">
+        <nav className="flex flex-col justify-center space-y-4">
           <ul>
             {items.map((link: any, index: number) => (
               <li key={index} className="text-lg">
