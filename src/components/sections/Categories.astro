@@ -50,7 +50,9 @@ const isSpanish = currentLocale === 'es';
   class="relative py-16 md:py-28 bg-gradient-radial -scroll-m-16"
   id={`${isSpanish ? 'categorias' : 'categories'}`}>
   <div class="max-w-screen-xl mx-auto px-6">
-    <h2 class="mb-16 text-4xl md:text-5xl font-bold text-white">
+    <h2
+      id="categories-heading"
+      class="mb-16 text-4xl md:text-5xl font-bold text-white">
       {title}
     </h2>
     <ul class="grid md:grid-cols-3 gap-x-12 gap-y-16">
@@ -62,3 +64,21 @@ const isSpanish = currentLocale === 'es';
     </ul>
   </div>
 </section>
+
+<script>
+  const categoriesHeading = document.querySelector(
+    '#categories-heading'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        categoriesHeading?.classList.add('animate-fade-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  if (categoriesHeading) {
+    observer.observe(categoriesHeading);
+  }
+</script>

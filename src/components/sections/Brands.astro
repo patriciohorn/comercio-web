@@ -33,11 +33,13 @@ const isSpanish = currentLocale === 'es';
   id={`${isSpanish ? 'marcas' : 'brands'}`}>
   <div class="max-w-screen-xl mx-auto px-6">
     <h2
+      id="animated-heading"
       class="mb-24 text-4xl md:text-5xl font-bold text-center text-blue-950">
       {titleDark}
       <span class="text-blue-700">{titleLight}</span>
     </h2>
     <div
+      id="animated-brands"
       class="grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-y-32">
       {
         logos.map(({ src, alt }) => {
@@ -56,3 +58,29 @@ const isSpanish = currentLocale === 'es';
     </div>
   </div>
 </section>
+
+<script>
+  const animatedHeading = document.getElementById('animated-heading');
+  const animatedBrands = document.getElementById('animated-brands');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === animatedHeading) {
+          animatedHeading.classList.add('animate-fade-up');
+        } else if (entry.target === animatedBrands) {
+          animatedBrands.classList.add('animate-fade-right');
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  if (animatedHeading) {
+    observer.observe(animatedHeading);
+  }
+
+  if (animatedBrands) {
+    observer.observe(animatedBrands);
+  }
+</script>

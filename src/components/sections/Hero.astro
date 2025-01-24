@@ -28,7 +28,7 @@ const isSpanish = Astro.currentLocale === 'es';
   </div>
   <div
     class="max-w-screen-xl mx-auto px-8 md:px-4 py-20 lg:pt-32 | grid lg:grid-cols-12 lg:gap-8 xl:gap-0">
-    <div class="mr-auto lg:col-span-8 text-white">
+    <div id="hero-content" class="mr-auto lg:col-span-8 text-white">
       <h1
         class="mb-8 text-4xl md:text-[56px] leading-[1.1] font-bold text-balance">
         {headline}
@@ -48,3 +48,19 @@ const isSpanish = Astro.currentLocale === 'es';
     <div class="absolute inset-0 -z-10 bg-blue-950/70"></div>
   </div>
 </header>
+
+<script>
+  const heroContent = document.querySelector('#hero-content');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        heroContent?.classList.add('animate-fade-right');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  if (heroContent) {
+    observer.observe(heroContent);
+  }
+</script>

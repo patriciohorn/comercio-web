@@ -21,7 +21,7 @@ const titleLight = titleArray.slice(-3).join(' ');
     <div class="md:w-3/5">
       <ServicesCarousel client:visible />
     </div>
-    <div class="md:w-2/5 flex flex-col">
+    <div id="about-content" class="md:w-2/5 flex flex-col">
       <p class="text-base md:text-lg text-[#777] font-bold mb-3">
         {eyebrow.toUpperCase()}
       </p>
@@ -43,3 +43,19 @@ const titleLight = titleArray.slice(-3).join(' ');
     </div>
   </div>
 </section>
+
+<script>
+  const aboutContent = document.querySelector('#about-content');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        aboutContent?.classList.add('animate-fade-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  if (aboutContent) {
+    observer.observe(aboutContent);
+  }
+</script>

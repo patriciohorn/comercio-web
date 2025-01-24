@@ -6,7 +6,9 @@ const { title } = Astro.props;
 
 <section class="py-16 md:py-28">
   <div class="max-w-screen-xl mx-auto px-6">
-    <h2 class="mb-16 text-4xl md:text-5xl font-bold text-blue-950">
+    <h2
+      id="operations-heading"
+      class="mb-16 text-4xl md:text-5xl font-bold text-blue-950">
       {title}
     </h2>
     <Image
@@ -16,3 +18,21 @@ const { title } = Astro.props;
     />
   </div>
 </section>
+
+<script>
+  const operationsHeading = document.querySelector(
+    '#operations-heading'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        operationsHeading?.classList.add('animate-fade-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  if (operationsHeading) {
+    observer.observe(operationsHeading);
+  }
+</script>

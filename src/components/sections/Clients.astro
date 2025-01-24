@@ -35,10 +35,12 @@ const isSpanish = currentLocale === 'es';
   id={`${isSpanish ? 'clientes' : 'clients'}`}>
   <div class="max-w-screen-xl mx-auto px-6">
     <h2
+      id="clients-heading"
       class="mb-9 text-4xl md:text-5xl font-bold text-center text-blue-950">
       {title}
     </h2>
     <div
+      id="clients-logos"
       class="py-14 grid grid-cols-2 gap-x-8 gap-y-16 md:grid-cols-4 md:gap-y-28">
       {
         logos.map(({ src, alt }, index) => {
@@ -58,3 +60,29 @@ const isSpanish = currentLocale === 'es';
     </div>
   </div>
 </section>
+
+<script>
+  const clientsHeading = document.getElementById('clients-heading');
+  const clientsLogos = document.getElementById('clients-logos');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target === clientsHeading) {
+          clientsHeading.classList.add('animate-fade-up');
+        } else if (entry.target === clientsLogos) {
+          clientsLogos.classList.add('animate-fade-right');
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  if (clientsHeading) {
+    observer.observe(clientsHeading);
+  }
+
+  if (clientsLogos) {
+    observer.observe(clientsLogos);
+  }
+</script>
