@@ -13,12 +13,12 @@ import pensWebp from '../../assets/pens.webp';
 import bottlesWebp from '../../assets/bottles.webp';
 
 const carouselImages = [
-  { jpg: dog, webp: dogWebp, alt: 'Image of a dog with toys' },
-  { jpg: pens, webp: pensWebp, alt: ' Image of pens on a desk' },
+  { jpg: dog, webp: dogWebp, alt: 'Dog with toys' },
+  { jpg: pens, webp: pensWebp, alt: ' Pens on a desk' },
   {
     jpg: bottles,
     webp: bottlesWebp,
-    alt: 'Image of water plastic bottles',
+    alt: 'Water plastic bottles',
   },
 ];
 

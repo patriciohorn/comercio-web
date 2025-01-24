@@ -1,8 +1,15 @@
 {
-  "hero": {
+  "header": {
     "headline": "Más de 8 años de experiencia en la comercialización de productos a nivel mundial",
     "subHeadline": "ComWeb OC ha estado ayudando a las marcas a expandirse internacionalmente en el continente Americano desde 2016",
-    "button": "Sobre Nosotros"
+    "button": "Sobre Nosotros",
+    "contactButton": "Contacto",
+    "items": {
+      "brands": "Marcas",
+      "about": "Nosotros",
+      "categories": "Categorias",
+      "clients": "Clientes"
+    }
   },
   "brands": {
     "title": "Colaboramos con las mejores marcas"

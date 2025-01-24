@@ -1,1 +1,63 @@
-<nav></nav>
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/comweb-logo-white.png';
+import { Button } from '../ui/button';
+import { Link } from '../ui/link';
+import { MobileMenu } from '../../components/mobileMenu';
+
+const { items, contactButton } = Astro.props;
+const navLinks = Object.values(items);
+const { currentLocale } = Astro;
+const isSpanish = currentLocale === 'es';
+const isContactPage =
+  Astro.url.pathname === '/contacto' ||
+  Astro.url.pathname === '/en/contact';
+const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
+---
+
+<nav class={navClass}>
+  <div
+    class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
+    <a href={isSpanish ? '/' : '/en'}>
+      <Image
+        src={logo}
+        alt="Logo Comercio Web"
+        class="max-w-20 md:max-w-24"
+        loading="eager"
+      />
+      <span class="sr-only">Ir a inicio</span>
+    </a>
+    <MobileMenu
+      items={navLinks}
+      isSpanis={isSpanish}
+      client:visible
+    />
+
+    <div class="hidden md:flex md:gap-x-12 md:items-center">
+      <ul class="flex gap-x-12">
+        {
+          navLinks.map((link: any, index: number) => (
+            <li class="text-white text-lg">
+              <a
+                href={
+                  isSpanish
+                    ? `/#${link.toLowerCase()}`
+                    : `/en/#${link.toLowerCase()}`
+                }>
+                {link}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <Button asChild>
+        <Link
+          variant={isContactPage ? 'secondary' : 'default'}
+          href={isSpanish ? '/contacto' : '/en/contact'}
+          >{contactButton}</Link
+        >
+      </Button>
+    </div>
+  </div>
+</nav>

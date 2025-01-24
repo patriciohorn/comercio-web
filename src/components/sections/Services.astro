@@ -6,9 +6,14 @@ const { title, subtitle, eyebrow } = Astro.props;
 const titleArray = title.split(' ');
 const titleDark = titleArray.slice(0, -3).join(' ');
 const titleLight = titleArray.slice(-3).join(' ');
+
+const { currentLocale } = Astro;
+const isSpanish = currentLocale === 'es';
 ---
 
-<section class="py-16 md:py-28">
+<section
+  class="py-16 md:py-28 -scroll-m-10"
+  id={`${isSpanish ? 'nosotros' : 'about'}`}>
   <div
     class="max-w-screen-xl mx-auto px-4 py-8 | flex flex-col justify-between md:flex-row gap-x-16 gap-y-12">
     <div class="md:w-3/5">

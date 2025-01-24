@@ -1,11 +1,18 @@
 ---
 import { Button } from '../ui/button';
-const { headline, subheadline, btnText } = Astro.props;
+import NavBar from './NavBar.astro';
+import { Link } from '../ui/link';
+const { headline, subheadline, btnText, items, contactButton } =
+  Astro.props;
 import heroVideoMp4 from '../../assets/hero-video.mp4';
 import heroVideoWebm from '../../assets/hero-video.webm';
+const { currentLocale } = Astro;
+const isSpanish = Astro.currentLocale === 'es';
 ---
 
-<section class="relative" style="height: 100vh; height: 100svh;">
+<header class="relative min-h-svh md:min-h-screen">
+  <!-- Added flex and items-center -->
+  <NavBar items={items} contactButton={contactButton} />
   <div
     class="absolute top-0 left-0 w-full h-full overflow-hidden -z-20">
     <video
@@ -20,18 +27,24 @@ import heroVideoWebm from '../../assets/hero-video.webm';
     </video>
   </div>
   <div
-    class="max-w-screen-xl mx-auto px-4 py-8 lg:py-16 | grid place-content-center h-full lg:grid-cols-12 lg:gap-8 xl:gap-0">
-    <div
-      class="mr-auto place-self-center lg:col-span-8 text-white p-[120px_3%_80px]">
+    class="max-w-screen-xl mx-auto px-8 py-20 lg:pt-32 | grid lg:grid-cols-12 lg:gap-8 xl:gap-0">
+    <div class="mr-auto lg:col-span-8 text-white">
       <h1
-        class="mb-8 text-5xl md:text-[56px] md:leading-[1.1] font-bold">
+        class="mb-8 text-5xl md:text-[56px] md:leading-[1.1] font-bold text-balance">
         {headline}
       </h1>
       <p class="mb-8 lg:mb-10 text-lg md:text-xl md:max-w-[30em]">
         {subheadline}
       </p>
-      <Button variant="secondary" size="lg">{btnText}</Button>
+      <!-- <Button variant="secondary" size="lg">{btnText}</Button> -->
+      <Button asChild>
+        <Link
+          variant="secondary"
+          size="lg"
+          href={isSpanish ? '#nosotros' : '#about'}>{btnText}</Link
+        >
+      </Button>
     </div>
     <div class="absolute inset-0 -z-10 bg-blue-950/70"></div>
   </div>
-</section>
+</header>

@@ -1,8 +1,15 @@
 {
-  "hero": {
+  "header": {
     "headline": "Boasting Over 8 Years of Experience in Product Commercialization Worldwide",
     "subHeadline": "ComWeb OC has been helping brands expand internationally across the Americas since 2016",
-    "button": "About Us"
+    "button": "About Us",
+    "contactButton": "Contact",
+    "items": {
+      "brands": "Brands",
+      "about": "About",
+      "categories": "Categories",
+      "clients": "Clients"
+    }
   },
   "brands": {
     "title": "Trusted by the best brands"

@@ -2,21 +2,27 @@
 import '../../styles/globals.css';
 import { getI18N } from '../../i18n/index';
 import Layout from '@/layouts/Layout.astro';
+import NavBar from '../sections/NavBar.astro';
 import Footer from '../sections/Footer.astro';
 import ContactForm from '../sections/ContactForm.astro';
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+const { items, contactButton } = Astro.props;
 ---
 
 <Layout title="Comercio Web">
+  <NavBar
+    items={i18n.header.items}
+    contactButton={i18n.header.contactButton}
+  />
   <main class="bg-[#F6F6F6]">
-    <div class="max-w-screen-xl mx-auto px-4 py-24 sm:py-32">
+    <div class="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
       <div class="mb-10 mx-auto max-w-2xl text-center">
         <h1
-          class="text-4xl text-balance text-primary sm:text-5xl font-bold text-center text-blue-950">
+          class="text-4xl text-balance text-blue-950 sm:text-5xl font-bold text-center">
           {i18n.contact.title}
         </h1>
-        <p class="mt-2 text-lg/8 text-gray-600">
+        <p class="mt-2 text-xl text-gray-600 text-balance">
           {i18n.contact.subtitle}
         </p>
       </div>
