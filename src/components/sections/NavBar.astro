@@ -4,7 +4,8 @@ import logo from '../../assets/comweb-logo-white.png';
 import { Button } from '../ui/button';
 import { Link } from '../ui/link';
 import { MobileMenu } from '../../components/mobileMenu';
-
+// import LanguagePicker from '../../components/LanguagePicker.astro';
+import LanguagePicker from '../../components/LanguagePicker.astro';
 const { items, contactButton } = Astro.props;
 const navLinks = Object.values(items);
 const { currentLocale } = Astro;
@@ -32,7 +33,7 @@ const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
       <ul class="flex gap-x-12">
         {
           navLinks.map((link: any, index: number) => (
-            <li class="text-white text-lg">
+            <li class="text-white text-lg font-medium">
               <a
                 href={
                   isSpanish
@@ -45,14 +46,20 @@ const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
           ))
         }
       </ul>
-
-      <Button asChild>
-        <Link
-          variant={isContactPage ? 'secondary' : 'default'}
-          href={isSpanish ? '/contacto' : '/en/contact'}
-          >{contactButton}</Link
-        >
-      </Button>
+      <div class="gap-x-2 flex items-center">
+        <LanguagePicker
+          isSpanish={isSpanish}
+          isContactPage={isContactPage}
+        />
+        <Button asChild>
+          <Link
+            variant={isContactPage ? 'secondary' : 'default'}
+            href={isSpanish ? '/contacto' : '/en/contact'}
+            >{contactButton}</Link
+          >
+        </Button>
+      </div>
+      <!-- <LanguagePicker isSpanish={isSpanish} /> -->
     </div>
 
     <div class="flex md:gap-x-2 md:hidden">

@@ -1,15 +1,22 @@
-export const languages = {
-  es: {
-    label: 'Español',
-    // flag: '/flags/flag-of-spain.png',
-  },
+import MexicoFlag from '@/components/flags/Mexico.astro';
+import UnitedStatesFlag from '@/components/flags/UnitedStates.astro';
+
+export const LANGUAGES = {
   en: {
-    label: 'English',
-    // flag: '/flags/flag-of-uk.png',
+    code: 'en',
+    name: 'English',
+    label: 'EN',
+    flag: UnitedStatesFlag,
+  },
+  es: {
+    code: 'es',
+    name: 'Español',
+    label: 'ES',
+    flag: MexicoFlag,
   },
 };
-export const showDefaultLang = false;
 export const defaultLang = 'es';
+export const showDefaultLang = false;
 
 export const ui = {
   es: 'es',

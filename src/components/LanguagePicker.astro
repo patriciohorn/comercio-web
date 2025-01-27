@@ -1,0 +1,54 @@
+---
+import { LANGUAGES } from '../i18n/ui';
+import { getLangFromUrl } from '../i18n/utils';
+import ChevronIcon from '@/components/icons/Chevron.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const currentLocaleData = LANGUAGES[lang];
+
+const otherLocales = Object.values(LANGUAGES).filter(
+  (locale) => locale.code !== lang
+);
+
+const { isSpanish, isContactPage } = Astro.props;
+
+function getHref(isSpanish: boolean, isContactPage: boolean) {
+  if (isContactPage) {
+    return isSpanish ? '/en/contact' : '/contacto';
+  }
+
+  return isSpanish ? '/en' : '/';
+}
+---
+
+<div class="relative inline-block text-left">
+  <div
+    class="group rounded-md text-base font-medium text-white transition-all">
+    <button
+      type="button"
+      class="inline-flex justify-between items-center w-full gap-x-2 px-3 py-2"
+      aria-expanded="true"
+      aria-haspopup="true">
+      <span class="">
+        <currentLocaleData.flag />
+      </span>
+      {currentLocaleData.name}
+      <ChevronIcon />
+    </button>
+    <ul
+      class="group-hover:block group-hover:animate-fade-down group-hover:animate-duration-200 hidden pt-0.5 absolute w-full text-[#374151] ext-base font-medium bg-white rounded-md shadow-lg border border-gray-300">
+      {
+        otherLocales.map((locale) => (
+          <li>
+            <a
+              class="inline-flex justify-start items-center w-full gap-x-2 px-4 py-1.5"
+              href={getHref(isSpanish, isContactPage)}>
+              <locale.flag />
+              {locale.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
