@@ -31,7 +31,9 @@
       "cleaning": "Cleaning supplies",
       "home": "Home & Kitchen",
       "snacks": "Snacks & Beverages",
-      "outdoors": "Outdoors & Wildlife"
+      "outdoors": "Outdoors & Wildlife",
+      "appliances": "Electronic Equipment",
+      "disposables": "Disposable kitchenware"
     }
   },
   "clients": {

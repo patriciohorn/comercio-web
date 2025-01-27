@@ -5,6 +5,8 @@ import Layout from '@/layouts/Layout.astro';
 import NavBar from '../sections/NavBar.astro';
 import Footer from '../sections/Footer.astro';
 import ContactForm from '../sections/ContactForm.astro';
+import { Send, Phone, MapPinHouse } from 'lucide-react';
+
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 const { items, contactButton } = Astro.props;
@@ -16,18 +18,34 @@ const { items, contactButton } = Astro.props;
     contactButton={i18n.header.contactButton}
   />
   <main class="bg-[#F6F6F6]">
-    <div class="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
-      <div class="mb-10 mx-auto max-w-2xl text-center">
+    <div
+      class="max-w-screen-xl mx-auto px-6 py-16 md:py-20 | grid grid-cols-2">
+      <div class="">
         <h1
-          class="text-4xl text-balance text-blue-950 sm:text-5xl font-bold text-center">
+          class="mb-8 text-4xl text-balance text-blue-950 md:text-5xl font-bold">
           {i18n.contact.title}
         </h1>
-        <p class="mt-2 text-xl text-gray-600 text-balance">
+        <p class="mb-10 text-xl max-w-[25em]">
           {i18n.contact.subtitle}
         </p>
+        <div class="space-y-4">
+          <div class="text-lg flex gap-x-4 items-center">
+            <MapPinHouse size={20} color="#0e1f65" />
+            <a href="mailto:info@comweboc.com"
+              >Monterrey, N.L. México</a
+            >
+          </div>
+          <div class="text-lg flex gap-x-4 items-center">
+            <Send size={20} color="#0e1f65" />
+            <a href="mailto:info@comweboc.com">info@comweboc.com</a>
+          </div>
+          <div class="text-lg flex gap-x-4 items-center">
+            <Phone size={20} color="#0e1f65" />
+            <a href="tel:+52 818 462 8963">+52 818 462 8963</a>
+          </div>
+        </div>
       </div>
-      <div
-        class="border border-gray-200 shadow-xl bg-primary-foreground py-10 rounded-3xl max-w-2xl mx-auto">
+      <div>
         <ContactForm
           labels={i18n.contact.form}
           buttonText={i18n.contact.submitText}

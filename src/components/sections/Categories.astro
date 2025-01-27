@@ -1,11 +1,15 @@
 ---
+import CategoryCard from '../CategoryCard.astro';
+
+// Images
 import pets from '../../assets/categories/pets.jpg';
 import cleaning from '../../assets/categories/cleaning.jpg';
 import kitchen from '../../assets/categories/kitchen.jpg';
 import office from '../../assets/categories/office.jpg';
 import outdoors from '../../assets/categories/outdoors.jpg';
 import snacks from '../../assets/categories/snacks.jpg';
-import CategoryCard from '../CategoryCard.astro';
+import desechables from '../../assets/categories/desechables.jpg';
+import electrodomesticos from '../../assets/categories/electrodomesticos.jpg';
 
 const { title, categories } = Astro.props;
 
@@ -40,6 +44,16 @@ const categoriesImages = [
     alt: 'Perros jugando con una pelota',
     category: categories.snacks,
   },
+  {
+    src: desechables,
+    alt: 'Perros jugando con una pelota',
+    category: categories.disposables,
+  },
+  {
+    src: electrodomesticos,
+    alt: 'Perros jugando con una pelota',
+    category: categories.appliances,
+  },
 ];
 
 const { currentLocale } = Astro;
@@ -55,7 +69,7 @@ const isSpanish = currentLocale === 'es';
       class="mb-16 text-4xl md:text-5xl font-bold text-white">
       {title}
     </h2>
-    <ul class="grid md:grid-cols-3 gap-x-12 gap-y-16">
+    <ul class="grid md:grid-cols-4 gap-x-8 gap-y-16">
       {
         categoriesImages.map(({ src, alt, category }) => (
           <CategoryCard src={src} alt={alt} category={category} />
