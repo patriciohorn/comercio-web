@@ -7,10 +7,29 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import logo from '../assets/comweb-logo-outline.png';
 import { Link } from './ui/link';
+import { Button } from './ui/button';
+import { Tag, User, Handshake, LayoutList } from 'lucide-react';
 
 function MobileMenu({ items, isSpanish }: any) {
+  const linkItems = [
+    {
+      label: items.brands,
+      icon: Tag,
+    },
+    {
+      label: items.about,
+      icon: User,
+    },
+    {
+      label: items.categories,
+      icon: LayoutList,
+    },
+    {
+      label: items.clients,
+      icon: Handshake,
+    },
+  ];
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -39,23 +58,36 @@ function MobileMenu({ items, isSpanish }: any) {
           </SheetTitle>
           <SheetDescription></SheetDescription>
         </SheetHeader>
-        <nav className="flex flex-col justify-center space-y-4">
+        <nav className="flex flex-col justify-center space-y-6 py-8 ">
           <ul>
-            {items.map((link: any, index: number) => (
-              <li key={index} className="text-lg">
-                <Link
-                  variant="link"
-                  className="text-lg text-black font-medium hover:underline px-0 justify-start"
-                  href={
-                    isSpanish
-                      ? `/#${link.toLowerCase()}`
-                      : `/en/#${link.toLowerCase()}`
-                  }>
-                  {link}
-                </Link>
-              </li>
-            ))}
+            {linkItems.map(
+              ({ label, icon: IconComponent }, index) => (
+                <li
+                  key={index}
+                  className="text-lg flex items-center gap-x-3">
+                  <IconComponent size={18} color="#242528" />
+                  <Link
+                    variant="link"
+                    className="text-lg text-[#242528] font-medium hover:underline px-0 justify-start"
+                    href={
+                      isSpanish
+                        ? `/#${label.toLowerCase()}`
+                        : `/en/#${label.toLowerCase()}`
+                    }>
+                    {label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
+          <Button asChild>
+            <Link
+              size="sm"
+              className="text-base"
+              href={isSpanish ? '/contacto' : '/en/contact'}>
+              {isSpanish ? 'Contacto' : 'Contact'}
+            </Link>
+          </Button>
         </nav>
       </SheetContent>
     </Sheet>

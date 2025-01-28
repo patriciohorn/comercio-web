@@ -68,21 +68,12 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
 
     <!-- Mobile  -->
     <div class="flex items-center gap-x-2 md:hidden">
-      <!-- <Button asChild>
-        <Link
-          variant={isContactPage ? 'secondary' : 'default'}
-          size="sm"
-          className="text-base"
-          href={isSpanish ? '/contacto' : '/en/contact'}
-          >{contactButton}</Link
-        >
-      </Button> -->
       <LanguagePicker
         isSpanish={isSpanish}
         isContactPage={isContactPage}
       />
       <MobileMenu
-        items={navLinks}
+        items={items}
         isSpanish={isSpanish}
         client:visible
       />
