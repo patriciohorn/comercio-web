@@ -11,9 +11,9 @@ const navLinks = Object.values(items);
 const { currentLocale } = Astro;
 const isSpanish = currentLocale === 'es';
 const isContactPage =
-  Astro.url.pathname === '/contacto' ||
-  Astro.url.pathname === '/en/contact';
-const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
+  Astro.url.pathname.includes('contacto') ||
+  Astro.url.pathname.includes('contact');
+const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
 ---
 
 <nav class={navClass}>
@@ -75,7 +75,7 @@ const navClass = ` ${isContactPage ? 'bg-blue-950' : ''}`;
       <MobileMenu
         items={navLinks}
         isSpanish={isSpanish}
-        client:visible
+        client:only
       />
     </div>
   </div>
