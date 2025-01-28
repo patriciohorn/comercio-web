@@ -26,20 +26,14 @@ function getHref(isSpanish: boolean, isContactPage: boolean) {
     class="group rounded-md text-lg font-medium text-white transition-all">
     <button
       type="button"
-      class="inline-flex justify-between items-center w-full gap-x-2 h-10 md:h-auto"
+      class="inline-flex justify-between items-center w-full gap-x-2"
       aria-expanded="true"
       aria-haspopup="true">
       <!-- <span class="">
         <currentLocaleData.flag />
       </span> -->
       <Globe size={18} />
-      <span class="hidden md:flex">
-        {currentLocaleData.name}
-      </span>
-
-      <span class="md:hidden">
-        {currentLocaleData.name.slice(0, 2).toUpperCase()}
-      </span>
+      {currentLocaleData.name}
       <ChevronIcon />
     </button>
     <ul
@@ -47,14 +41,12 @@ function getHref(isSpanish: boolean, isContactPage: boolean) {
       {
         otherLocales.map((locale) => (
           <li class="text-center">
+            {/* <Globe size={18} className="text-transparent" /> */}
             <a
               class="text-center"
               href={getHref(isSpanish, isContactPage)}>
               {/* <locale.flag /> */}
-              <span class="hidden md:block">{locale.name}</span>
-              <span class="md:hidden">
-                {locale.name.slice(0, 2).toUpperCase()}
-              </span>
+              {locale.name}
             </a>
           </li>
         ))

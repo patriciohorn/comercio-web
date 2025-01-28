@@ -18,7 +18,8 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
 
 <nav class={navClass}>
   <div
-    class="max-w-screen-xl mx-auto px-4 py-2 flex items-center justify-between">
+    class="max-w-screen-xl mx-auto px-4 py-2 | flex justify-between items-center gap-x-2">
+    <!-- Logo -->
     <a href={isSpanish ? '/' : '/en'}>
       <Image
         src={logo}
@@ -29,11 +30,12 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
       <span class="sr-only">Ir a inicio</span>
     </a>
 
-    <div class="hidden md:flex md:gap-x-12 md:items-center">
-      <ul class="flex gap-x-12">
+    <div class="relative flex items-center gap-x-8">
+      <!-- Nav Links -->
+      <ul class="hidden md:flex md:gap-x-10 md:items-center text-lg">
         {
           navLinks.map((link: any, index: number) => (
-            <li class="text-white text-lg font-medium">
+            <li class="text-white font-medium">
               <a
                 href={
                   isSpanish
@@ -46,7 +48,10 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
           ))
         }
       </ul>
-      <div class="gap-x-2 flex items-center">
+
+      <div class="md:w-[2px] md:h-6 md:bg-white/40"></div>
+      <!-- Language Picker and Contact Button -->
+      <div class="hidden md:gap-x-6 md:flex items-center">
         <LanguagePicker
           isSpanish={isSpanish}
           isContactPage={isContactPage}
@@ -59,11 +64,11 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
           >
         </Button>
       </div>
-      <!-- <LanguagePicker isSpanish={isSpanish} /> -->
     </div>
 
-    <div class="flex md:gap-x-2 md:hidden">
-      <Button asChild>
+    <!-- Mobile  -->
+    <div class="flex items-center gap-x-2 md:hidden">
+      <!-- <Button asChild>
         <Link
           variant={isContactPage ? 'secondary' : 'default'}
           size="sm"
@@ -71,7 +76,11 @@ const navClass = `${isContactPage ? 'bg-blue-950' : ''}`;
           href={isSpanish ? '/contacto' : '/en/contact'}
           >{contactButton}</Link
         >
-      </Button>
+      </Button> -->
+      <LanguagePicker
+        isSpanish={isSpanish}
+        isContactPage={isContactPage}
+      />
       <MobileMenu
         items={navLinks}
         isSpanish={isSpanish}
