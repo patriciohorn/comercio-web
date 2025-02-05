@@ -116,7 +116,8 @@ const { labels, buttonText } = Astro.props;
         <input
           required
           type="text"
-          id="asunto"
+          id="subject"
+          name="subject"
           class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           placeholder=""
         />
@@ -132,11 +133,12 @@ const { labels, buttonText } = Astro.props;
           >{labels.message}*</label
         >
         <textarea
-          id="mensaje"
+          required
+          id="message"
+          name="message"
           rows="5"
           class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 resize-none"
-          placeholder=""
-          required></textarea>
+          placeholder=""></textarea>
         <div
           class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
           Please enter your message.
