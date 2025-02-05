@@ -214,7 +214,7 @@ const { labels, buttonText } = Astro.props;
           result.innerHTML = 'Something went wrong!';
         })
         .then(function () {
-          form.requestFullscreen();
+          form.reset();
           form.classList.remove('was-validated');
           setTimeout(() => {
             result?.style.display = 'none';
