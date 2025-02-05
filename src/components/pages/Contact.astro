@@ -31,17 +31,23 @@ const { items, contactButton } = Astro.props;
         <div class="space-y-4">
           <div class="text-lg flex gap-x-4 items-center">
             <MapPinHouse size={20} color="#0e1f65" />
-            <a href="mailto:info@comweboc.com"
-              >Monterrey, N.L. México</a
-            >
+            <span>Monterrey, N.L. México</span>
           </div>
           <div class="text-lg flex gap-x-4 items-center">
             <Send size={20} color="#0e1f65" />
-            <a href="mailto:info@comweboc.com">info@comweboc.com</a>
+            <a
+              href="mailto:info@comweboc.com"
+              class="link-hover after:bg-[#0e1f65] hover:text-[#0e1f65]"
+              >info@comweboc.com</a
+            >
           </div>
           <div class="text-lg flex gap-x-4 items-center">
             <Phone size={20} color="#0e1f65" />
-            <a href="tel:+52 818 462 8963">+52 818 462 8963</a>
+            <a
+              href="tel:+52 818 462 8963"
+              class="link-hover after:bg-[#0e1f65] hover:text-[#0e1f65]"
+              >+52 818 462 8963</a
+            >
           </div>
         </div>
       </div>

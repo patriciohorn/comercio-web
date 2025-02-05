@@ -2,43 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'DM Sans';
-  src: url('./fonts/DMSans-Regular.woff2') format('woff2'),
-    url('./fonts/DMSans-Regular.woff') format('woff'),
-    url('./fonts/DMSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap; /* Optional, but recommended */
-}
-
-/* DM Sans Medium 500 */
-@font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DMSans-Medium.woff2') format('woff2'),
-    url('/fonts/DMSans-Medium.woff') format('woff'),
-    url('/fonts/DMSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap; /* Optional, but recommended */
-}
-@font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DMSans-Medium.woff2') format('woff2'),
-    url('/fonts/DMSans-Medium.woff') format('woff'),
-    url('/fonts/DMSans-Medium.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap; /* Optional, but recommended */
-}
-
-/* DM Sans Bold 700 */
-@font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DMSans-Bold.woff2') format('woff2'),
-    url('/fonts/DMSans-Bold.woff') format('woff'),
-    url('/fonts/DMSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap; /* Optional, but recommended */
-}
-
 @layer base {
   :root {
     --primary: 228 76% 23%;
@@ -58,6 +21,43 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/DMSans-Regular.woff2') format('woff2'),
+      url('./fonts/DMSans-Regular.woff') format('woff'),
+      url('./fonts/DMSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap; /* Optional, but recommended */
+  }
+
+  /* DM Sans Medium 500 */
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-Medium.woff2') format('woff2'),
+      url('/fonts/DMSans-Medium.woff') format('woff'),
+      url('/fonts/DMSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap; /* Optional, but recommended */
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-Medium.woff2') format('woff2'),
+      url('/fonts/DMSans-Medium.woff') format('woff'),
+      url('/fonts/DMSans-Medium.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap; /* Optional, but recommended */
+  }
+
+  /* DM Sans Bold 700 */
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/fonts/DMSans-Bold.woff2') format('woff2'),
+      url('/fonts/DMSans-Bold.woff') format('woff'),
+      url('/fonts/DMSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap; /* Optional, but recommended */
   }
 }
 
@@ -81,16 +81,18 @@
   }
 }
 
-.gradient {
-  background-image: radial-gradient(
-    circle at center center,
-    rgb(12, 44, 156),
-    rgb(14, 31, 101)
-  );
-}
+@layer components {
+  .gradient {
+    background-image: radial-gradient(
+      circle at center center,
+      rgb(12, 44, 156),
+      rgb(14, 31, 101)
+    );
+  }
 
-.link-hover {
-  @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 
-  after:w-full after:h-[2px] after:bg-white after:scale-x-0 
-  after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left;
+  .link-hover {
+    @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 
+    after:w-full after:h-[2px] after:rounded-full after:bg-current after:scale-x-0 after:origin-right
+    after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left;
+  }
 }

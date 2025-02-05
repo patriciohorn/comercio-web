@@ -2,6 +2,11 @@
 import { Image } from 'astro:assets';
 import comwebLogo from '../../assets/comweb-logo-white.png';
 import { Send, Phone, MapPinHouse } from 'lucide-react';
+import { getI18N } from '../../i18n/index';
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const navLinks = i18n.footer.navLinks;
 ---
 
 <footer class="bg-primary text-white py-20">
@@ -39,11 +44,19 @@ import { Send, Phone, MapPinHouse } from 'lucide-react';
     <div>
       <h3 class="text-xl font-medium mb-4">Enlaces del Sitio</h3>
       <ul class="space-y-2 text-lg text-gray-200">
-        <li><a href="/" class="link-hover">Inicio</a></li>
-        <li>
+        {
+          navLinks.map(({ label, href }) => (
+            <li>
+              <a href={href} class="link-hover">
+                {label}
+              </a>
+            </li>
+          ))
+        }
+        <!-- <li>
           <a href="#services" class="link-hover">Nosotros</a>
         </li>
-        <li><a href="#brands" class="link-hover">Marcas</a></li>
+        <li><a  href="#brands" class="link-hover">Marcas</a></li>
         <li>
           <a href="#categories" class="link-hover">Categorías</a>
         </li>
@@ -51,7 +64,7 @@ import { Send, Phone, MapPinHouse } from 'lucide-react';
           <a href="#international-relations" class="link-hover"
             >Clientes</a
           >
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

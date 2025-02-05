@@ -55,6 +55,28 @@
   "footer": {
     "email": "info@comweboc.com",
     "location": "Monterrey, NL, México",
-    "phone": "+52 818 462 8963"
+    "phone": "+52 818 462 8963",
+    "navLinks": [
+      {
+        "label": "Inicio",
+        "href": "/"
+      },
+      {
+        "label": "Nosotros",
+        "href": "/#nosotros"
+      },
+      {
+        "label": "Marcas",
+        "href": "/#marcas"
+      },
+      {
+        "label": "Categorías",
+        "href": "/#categorias"
+      },
+      {
+        "label": "Clientes",
+        "href": "/#clientes"
+      }
+    ]
   }
 }
