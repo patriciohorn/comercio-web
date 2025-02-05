@@ -145,9 +145,11 @@ const { labels, buttonText } = Astro.props;
         </div>
       </div>
     </div>
-    <div class="h-captcha mt-6" data-captcha="true"></div>
     <Button size="lg" className="w-full mt-6">{buttonText}</Button>
-    <div id="result" class="text-center"></div>
+    <div
+      id="result"
+      class="transition-colors transition-200 ease-in-out">
+    </div>
   </form>
 </section>
 
@@ -172,11 +174,7 @@ const { labels, buttonText } = Astro.props;
     border-color: #dc3545;
   }
 </style>
-<script
-  is:inline
-  src="https://web3forms.com/client/script.js"
-  async
-  defer></script>
+
 <script is:inline>
   // use astro:page-load event if you are using View Transitions
 
@@ -198,6 +196,8 @@ const { labels, buttonText } = Astro.props;
         const json = JSON.stringify(object);
 
         result.innerHTML = 'Sending...';
+        result.className =
+          'text-center p-4 mt-6 text-blue-800 bg-blue-50 rounded-sm';
 
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -210,11 +210,13 @@ const { labels, buttonText } = Astro.props;
           .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-              result.classList.add('text-green-500');
+              result.className =
+                'text-center p-4 mt-6 text-green-800 bg-green-50 rounded-sm';
               result.innerHTML = json.message;
             } else {
               console.log(response);
-              result.classList.add('text-red-500');
+              result.className =
+                'text-center p-4 mt-6 text-red-800 bg-red-50 rounded-sm';
               result.innerHTML = json.message;
             }
           })
