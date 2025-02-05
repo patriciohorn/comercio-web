@@ -79,12 +79,18 @@
     @apply tracking-tight;
     @apply leading-tight;
   }
+}
 
-  .gradient {
-    background-image: radial-gradient(
-      circle at center center,
-      rgb(12, 44, 156),
-      rgb(14, 31, 101)
-    );
-  }
+.gradient {
+  background-image: radial-gradient(
+    circle at center center,
+    rgb(12, 44, 156),
+    rgb(14, 31, 101)
+  );
+}
+
+.link-hover {
+  @apply relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 
+  after:w-full after:h-[2px] after:bg-white after:scale-x-0 
+  after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left;
 }
