@@ -34,7 +34,7 @@ const { labels, buttonText } = Astro.props;
         placeholder=""
       />
     </div>
-    <div class="mb-4">
+    <div>
       <label for="phone" class="block mb-2 font-medium text-gray-900"
         >{labels.phone}*</label
       >
@@ -88,8 +88,8 @@ const { labels, buttonText } = Astro.props;
         required></textarea>
     </div>
   </div>
-  <div data-netlify-recaptcha="true"></div>
-  <div class="mt-10">
+  <div class="mt-6" data-netlify-recaptcha="true"></div>
+  <div class="mt-6">
     <Button size="lg" className="w-full">{buttonText}</Button>
   </div>
 </form>
