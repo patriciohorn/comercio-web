@@ -18,6 +18,7 @@ const { labels, buttonText } = Astro.props;
         name="access_key"
         value="a99a01bd-4fd5-4a4e-bdff-4ab922ca1099"
       />
+
       <input type="hidden" name="from_name" value="Comweboc" />
       <input
         type="checkbox"
@@ -142,10 +143,9 @@ const { labels, buttonText } = Astro.props;
         </div>
       </div>
     </div>
-    <!-- Captcha -->
-    <div class="mt-6"></div>
-    <Button size="lg" className="w-full">{buttonText}</Button>
-    <div id="result" class="mt-3 text-center"></div>
+    <div class="h-captcha mt-6" data-captcha="true"></div>
+    <Button size="lg" className="w-full mt-6">{buttonText}</Button>
+    <div id="result" class="text-center"></div>
   </form>
 </section>
 
@@ -170,56 +170,65 @@ const { labels, buttonText } = Astro.props;
     border-color: #dc3545;
   }
 </style>
-
+<script
+  is:inline
+  src="https://web3forms.com/client/script.js"
+  async
+  defer></script>
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
-    const result = document.getElementById('result');
+  // use astro:page-load event if you are using View Transitions
 
-    form?.addEventListener('submit', function (e) {
-      e.preventDefault();
-      form.classList.add('was-validated');
-      if (!form.checkValidity()) {
-        form.querySelectorAll(':invalid')[0].focus();
-        return;
-      }
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      const form = document.getElementById('form');
+      const result = document.getElementById('result');
 
-      const formData = new FormData(form);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.classList.add('was-validated');
+        if (!form.checkValidity()) {
+          form.querySelectorAll(':invalid')[0].focus();
+          return;
+        }
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
-      result.innerHTML = 'Sending...';
+        result.innerHTML = 'Sending...';
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: json,
-      })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-            result?.classList.add('text-green-500');
-            result.innerHTML = json.message;
-          } else {
-            console.log(response);
-            result?.classList.add('text-red-500');
-            result.innerHTML = json.message;
-          }
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: json,
         })
-        .catch((error) => {
-          console.log(error);
-          result.innerHTML = 'Something went wrong!';
-        })
-        .then(function () {
-          form.reset();
-          form.classList.remove('was-validated');
-          setTimeout(() => {
-            result?.style.display = 'none';
-          }, 5000);
-        });
-    });
-  });
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.classList.add('text-green-500');
+              result.innerHTML = json.message;
+            } else {
+              console.log(response);
+              result.classList.add('text-red-500');
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = 'Something went wrong!';
+          })
+          .then(function () {
+            form.reset();
+            form.classList.remove('was-validated');
+            setTimeout(() => {
+              result.style.display = 'none';
+            }, 5000);
+          });
+      });
+    },
+    { once: true }
+  );
 </script>
