@@ -4,8 +4,10 @@ const { labels, buttonText } = Astro.props;
 ---
 
 <form
-  action="#"
+  name="contact"
+  data-netlify="true"
   method="POST"
+  data-netlify-recaptcha="true"
   class="py-10 px-6 border border-gray-200 bg-[#f5f5f5] rounded-3xl shadow-lg">
   <div class="grid gap-x-8 gap-y-6 md:grid-cols-2">
     <div>
