@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import comwebLogo from '../../assets/comweb-logo-white.png';
+import { Send, Phone, MapPinHouse } from 'lucide-react';
 ---
 
 <footer class="bg-primary text-white py-20">
@@ -14,15 +15,20 @@ import comwebLogo from '../../assets/comweb-logo-white.png';
     <!-- Contact Info Section -->
     <div class="mb-8 md:mb-0">
       <h3 class="text-xl font-medium mb-4">Contacto</h3>
-      <ul class="space-y-2 text-lg text-gray-200">
-        <li>
-          Email: <a href="mailto:info@comweboc.com" class="underline"
+      <ul class="space-y-3 text-lg text-gray-200">
+        <li class="text-lg flex gap-x-2.5 items-center">
+          <Send size={18} className="text-gray-200" />
+          <a href="mailto:info@comweboc.com" class="underline"
             >info@comweboc.com</a
           >
         </li>
-        <li>Ubicación: Monterrey, NL, México</li>
-        <li>
-          Teléfono: <a href="tel:+528184628963" class="underline"
+        <li class="text-lg flex gap-x-3 items-center">
+          <MapPinHouse size={18} className="text-gray-200" />
+          <span>Monterrey, NL, México</span>
+        </li>
+        <li class="text-lg flex gap-x-3 items-center">
+          <Phone size={18} className="text-gray-200" />
+          <a href="tel:+528184628963" class="underline"
             >+52 818 462 8963</a
           >
         </li>
