@@ -197,7 +197,7 @@ const { labels, buttonText } = Astro.props;
 
         result.innerHTML = 'Sending...';
         result.className =
-          'text-center p-4 mt-6 text-blue-800 bg-blue-50 rounded-sm';
+          'text-center p-4 mt-6 text-blue-800 bg-blue-50 border border-blue-300 rounded-md';
 
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -211,12 +211,12 @@ const { labels, buttonText } = Astro.props;
             let json = await response.json();
             if (response.status == 200) {
               result.className =
-                'text-center p-4 mt-6 text-green-800 bg-green-50 rounded-sm';
+                'text-center p-4 mt-6 text-green-800 bg-green-50 border border-green-300 rounded-md';
               result.innerHTML = json.message;
             } else {
               console.log(response);
               result.className =
-                'text-center p-4 mt-6 text-red-800 bg-red-50 rounded-sm';
+                'text-center p-4 mt-6 text-red-800 bg-red-50 border border-red-300 rounded-md';
               result.innerHTML = json.message;
             }
           })
