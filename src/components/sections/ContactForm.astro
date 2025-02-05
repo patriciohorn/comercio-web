@@ -146,6 +146,7 @@ const { labels, buttonText } = Astro.props;
         </div>
       </div>
     </div>
+    <div class="mt-6 h-captcha" data-captcha="true"></div>
     <Button size="lg" className="w-full mt-6">{buttonText}</Button>
     <div
       id="result"
@@ -175,7 +176,11 @@ const { labels, buttonText } = Astro.props;
     border-color: #dc3545;
   }
 </style>
-
+<script
+  is:inline
+  src="https://web3forms.com/client/script.js"
+  async
+  defer></script>
 <script is:inline>
   // use astro:page-load event if you are using View Transitions
 
